@@ -17,6 +17,8 @@ export default function App(){
         <Text style={styles.textMoney}>Rp. 1.560.900</Text>
         <Text style={styles.textTopup}>TOPUP WALLET</Text>
       </View>
+      <Text style={styles.textInfo}>Address</Text>
+      <Text style={styles.textInfo}>Jl. Tanah Merdeka</Text>
     </View>
   )
 }
@@ -52,7 +54,8 @@ const styles = StyleSheet.create({
     marginTop: -40,
     borderRadius: 10,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginBottom: 20
   },
   textMoney: {
     color: 'black',
@@ -63,5 +66,10 @@ const styles = StyleSheet.create({
     color: '#6f1887',
     fontSize: 14,
     fontWeight: 'normal'
+  },
+  textInfo: {
+    color: 'black',
+    fontSize: 14,
+    marginLeft: 20
   }
 })
