@@ -1,10 +1,17 @@
 import React from 'react';
 import { View, Text, TextInput, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
 import MCIcon from "react-native-vector-icons/MaterialCommunityIcons";
+import { useNavigation } from "@react-navigation/native";
 
 const { width, height } = Dimensions.get("screen");
 
 export default function Login(){
+  const navigation = useNavigation();
+  
+  function onLogin(){
+    navigation.navigate("Profile");
+  }
+
   return(
     <View style={styles.rootContainer}>
       <TextInput 
@@ -18,7 +25,7 @@ export default function Login(){
         placeholderTextColor={'grey'}
         secureTextEntry
       />
-      <TouchableOpacity style={styles.btnLogin}>
+      <TouchableOpacity style={styles.btnLogin} onPress={onLogin}>
         <MCIcon 
           name="login"
           size={width*0.05}

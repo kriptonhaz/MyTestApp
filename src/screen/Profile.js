@@ -1,9 +1,17 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, Dimensions } from "react-native";
+import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
+import MCIcon from "react-native-vector-icons/MaterialCommunityIcons";
+import { useNavigation } from "@react-navigation/native";
 
 const { width, height } = Dimensions.get("screen");
 
 export default function Profile(){
+  const navigation = useNavigation();
+
+  function onLogout(){
+    navigation.goBack();
+  }
+  
   return(
     <View style={styles.rootContainer}>
       <View style={styles.boxContainer}>
@@ -17,6 +25,14 @@ export default function Profile(){
         <Text style={styles.textMoney}>Rp. 1.560.900</Text>
         <Text style={styles.textTopup}>TOPUP WALLET</Text>
       </View>
+      <TouchableOpacity style={styles.btnLogin} onPress={onLogout}>
+        <MCIcon 
+          name="logout"
+          size={width*0.05}
+          color={'white'}
+        />
+        <Text style={styles.text}>Logout</Text>
+      </TouchableOpacity>
     </View>
   )
 }
@@ -63,5 +79,20 @@ const styles = StyleSheet.create({
     color: '#6f1887',
     fontSize: 14,
     fontWeight: 'normal'
+  },
+  text: {
+    color: 'white',
+    fontSize: 24
+  },
+  btnLogin: {
+    width: width*0.5,
+    height: 50,
+    backgroundColor: '#551682',
+    marginTop: 20,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    alignSelf: 'center'
   }
 })
